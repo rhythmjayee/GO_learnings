@@ -79,5 +79,125 @@ types :
       b := append(a[:2], a[3:]...)
 
 
+    Map
+      map[Key_type]type
+      //slice is not valid key type
+
+      //no order maintained
+      mapp := map[int]int{
+         0  :123,
+         1 : 1234,
+      }
+
+      //same mapp reference
+      new_map := mapp
+
+      // var mapp map[int]int -> cant do, use make()
+
+      fmt.Printf("%v %T\n",mapp,mapp)
+
+      //Using make()
+      m := make(map[int]int)
+      m[0] = 0
+
+      val, isKeyPresent := m[0]
+      //val = 0, isKeyPresent = true -> key is in map
+
+      //To delete key from map
+      delete(map_name,Key)
+        delete(mapp, 0)
+
+
+
+    struct
+      Ex:
+        type Student struct{
+          name string
+          rollno int32
+      }
+      //In main function
+        student1 := Student{
+        name : "rhythm",
+        rollno : 1,
+      }
+
+      //deep copy
+      student2 := student1
+
+       fmt.Println(student1.name)
+
+       //2nd way
+
+       student1 := struct{
+        name string
+        rollno int
+        }{
+        name:"rhythm",
+        rollno : 1,
+     }
+
+  //Compositions -> like inheritance
+    Ex:
+      type Animal struct{
+      Name string
+      Origin string
+    }
+
+    type Bird struct{
+    //Composition
+      Animal
+      speed float32
+      canFly bool
+    }
+
+    //In main func
+    b := Bird{}
+    b.Name = "biiird"
+    b.Origin = "India"
+    b.speed = 32
+    b.canFly = true
+
+    //Other way
+    b := Bird{
+        Animal : {
+        Name = "biiird",
+        Origin = "India"
+      },
+      speed = 32,
+      b.canFly = true,
+    }
+
+    //Tags in struct --> reflect package
+      type Animal struct{
+        Name string `required max:100`
+        Origin string
+    }
+
+    //In main func
+    t := reflect.TypeOf(Animal{})
+    field, _ := t.FieldByName("Name")
+    fmt.Println(field.Tag)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 **/
