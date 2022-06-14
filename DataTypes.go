@@ -179,7 +179,8 @@ types :
     fmt.Println(field.Tag)
 
 
-
+    //type interface
+    var i interface{} = 1.0
 
 
 
