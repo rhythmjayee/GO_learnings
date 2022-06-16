@@ -37,7 +37,7 @@ func main()  {
     default : fmt.Println("Default")
 
   }
-
+//type switch
   var i interface{} = 1.0
     switch i.(type){
         case float64 :  fmt.Println("Case float")
